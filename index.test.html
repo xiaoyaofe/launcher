@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+    }
+
+    #app-launcher {
+      position: fixed;
+      z-index: 10;
+      left: 0;
+      top: 0;
+    }
+
+    #hidden {
+      position: fixed;
+      z-index: -1;
+      visibility: hidden;
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/vConsole/3.2.0/vconsole.min.js"></script>
+  <script>
+    new VConsole
+  </script>
+</head>
+
+<body>
+  <div class="swiper-container">
+    <div class="swiper-wrapper"></div>
+    <div class="swiper-pagination"></div>
+  </div>
+  <div id="app-background"></div>
+  <div id="small-game"></div>
+  <div id="app-launcher"></div>
+  <div id="hidden"></div>
+</body>
+
+</html>

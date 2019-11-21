@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "module": "esnext",
+    "moduleResolution": "node",
+    "target": "es5",
+    "baseUrl": ".",
+    "jsx": "react",
+    "lib": [
+      "es2015",
+      "es2017",
+      "dom"
+    ],
+  },
+  "include": [
+    "./src/**/*.tsx",
+    "./src/**/*.ts",
+    "./index.d.ts",
+  ],
+  "exclude": [
+    "./src/bower/**/*",
+    "./js/**/*",
+    "./res/**/*",
+    "./libs/**/*",
+    "./package.json",
+    "./build/**/*",
+  ]
+}
