@@ -5,10 +5,10 @@
   "scripts": {
     "dev": "webpack-dev-server --mode development --action dev",
     "build": "webpack --mode production --action",
+    "build-dev": "webpack --mode development --action",
     "build-cache-sg": "webpack --mode production --cache true --server sg --action",
     "build-cache-de": "webpack --mode production --cache true --server de --action",
-    "build-cache-vn": "webpack --mode production --cache true --server vn --action",
-    "test": "webpack --mode development --action"
+    "build-cache-vn": "webpack --mode production --cache true --server vn --action"
   },
   "license": "ISC",
   "devDependencies": {
