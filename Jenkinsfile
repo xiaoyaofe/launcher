@@ -18,7 +18,7 @@ pipeline {
                         sh 'npm install'
                         sh '''
                             [[ -z ${version} ]] && echo "not input version" && exit 1
-                            npm run build ${version}
+                            npm run build-dev ${version}
 
                             dt=$(date '+%Y%m%d')
                             mkdir -p /data/app/${project}/${dt}
