@@ -1,11 +1,11 @@
 ---
 
-- hosts: "{{ remote_hosts }}"
+- hosts: cnsdktest01
   remote_user: chadmin
   gather_facts: False
   vars:
-      program_path: "/data/platform/platform-sdk-start/{{ project }}/{{ version }}"
-      backup_root_path: /data/server_bak/platform/platform-sdk-start/{{ project}}
+      program_path: "/data/sdk-test/sdk-start/{{ project }}/{{ version }}"
+      backup_root_path: /data/sdk-test/sdk-start/{{ project}}
       archive_path: /data/server_bak/archive_file/{{ project }}
       archive_file: "{{ archive_path }}/{{ arch_file }}"
   tasks:
