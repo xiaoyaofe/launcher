@@ -1,5 +1,8 @@
 # launcher(游戏包启动器)
 
+服务器目录：
+sdk_cntest_0001-WebServer|/data/sdk-test/sdk-start/launcher
+
 更新时间：2019.3.21
 
 简介：主要是为了google和apple过审和更新，更新有插件包，补丁包等。
