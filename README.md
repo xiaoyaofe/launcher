@@ -16,8 +16,23 @@
 使用的库有：[swiper](http://idangero.us/swiper/get-started/),[material-ui](https://material-ui.com/getting-started/installation/),[typescript](https://www.tslang.cn/docs/handbook/typescript-in-5-minutes.html)
 
 构建：
-[Jenkins](http://jenkins.royale.com/) 正式打包流程是：选择prod-build-frontend-launcher > Build with Parameters > 在version中传入方案名：例如ob0，打包完成后，联系运维部署到需要的节点，现在有新加坡节点、德法节点、越南节点。
-测试的构建：npm run test ob0 打包好后连接国内测试服上传就好。
+
+1. [Jenkins](http://jenkins2.royale.com/view/prod-build/job/prod-build-frontend/job/launcher/) 正式打包流程是：选择prod-build-frontend-launcher > Build with Parameters > 在version中传入方案名：例如ob0，打包完成后，联系运维部署到需要的节点，现在有新加坡节点、德法节点、越南节点。
+
+2. 测试的构建：npm run test ob0 打包好后连接国内测试服: cntest (国内测试服) `/data/sdk-test/sdk-start/launcher`上传就好。
+
+   \- 上传命令 `rz -bey`；
+
+    \- 解压命令: `unzip -o xxx`
+
+    \- 删除: `rm -rf xxx`
+
+    \- 对应的 ngix 路径：/usr/local/nginx/conf/vhosts/start-sg-sdk.conf
+
+    \- 打包参数 方案名例：ob0
+
+    \- 查看地址: http://sdk-start-test.changic.net.cn/sp05c9971e755c2eab303166f32692e3fb1/index.html?startKey=6630bba2bcf84a8eb62b602614cbb661&startId=9000&version=&xyx=
+
 修复bug的流程：连上WIFI将DNS切换到172.16.2.206，然后启动器的请求正式服地址就会自动DNS解析到测试服，然后进行vconsole 进行调试修复，如不正常，联系后端配置测试服务器，再检查测试启动器上传没有，一般情况下是在手机上进行复现、修改，注意和原生对接。
 
 ## 目录说明
@@ -88,3 +103,16 @@ Tip中主要是一些提示
 ### 具体方案的组件的流程
 
 ** Ob0**
+
+### 启动器测试安装obb包
+
+1. 准备好分包打包的Android安装包（apk+obb），比如说是：ABC.apk + ABC.obb
+
+2. 先把apk安装到Android设备，然后将对应obb文件改名为：`main.<Bundle Version Code>.<包名>.obb`
+
+3. 拷贝到Android设备的“/android/obb/<包名>/ ”路径下。  
+4. 以上面的ABC为例（假设其“Bundle Version Code”值为2，包名为“com.Demo.ABC”）：
+   - 首先，在Android设备上安装ABC.apk；- 接着，将ABC.obb改名为“main.2.com.Demo.ABC.obb”；
+   - 然后，将文件“main.2.com.Demo.ABC.obb”拷贝到Android设备的“/android/obb/com. Demo.ABC/”路径下；
+   - 启动App，你会发现新安装的APP已经可以正常使用了。
+   -  一般实际情况是将obb文件考好，后安装，并且命名是已经完成的
