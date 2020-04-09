@@ -1,6 +1,6 @@
 # launcher(游戏包启动器)
 
-更新时间：2019.3.21
+更新时间：2020.3.18
 
 简介：主要是为了google和apple过审和更新，更新有插件包，补丁包等。
 目前的方案共有：
@@ -84,6 +84,38 @@ Tip中主要是一些提示
 主要调用JsToNative中的同名的方法来和原生的ios和android交互，添加异常处理函数和插件安装的函数
 4. 拿到设备信息，详情参阅index.d.ts中的 NativeResponse,Promise<{}>是typescript中对Promise的返回值的断言
 5. promise1请求init接口拿到服务端的返回值，详情参阅index.d.ts中的  ServerResponse，promise2根据版本来却行要加载的页面组件，成功返回组件的渲染函数
+```js
+//init 接口的返回值,非提审状态
+{
+	code: 200
+	data: {
+		downloadUrl: "https://www.baidu.com/",
+		isCheck: 0,
+		publics: {
+			bgType: "2" //显示的图片或者游戏
+			currentPhoto: "http://res-pkg-cdn.pocketgamesol.com/pmfr/tt.png"
+			currentPlugAppId: "10120"
+			currentPlugDownloadUrl: "http://172.16.3.204/yuenan3dsCJQG.apk"
+			currentPlugPackageId: "10001"
+			currentPlugPackageName: "com.championtrainer.tw.plugin"
+			currentPlugRplDownloadUrl: "http://172.16.3.204/hanguo3dsTH.apk"
+			currentPlugUpdateWay: " 0"
+			currentPlugVersion: "1.8.1"
+			currentStartDownPage: "http://pkde.pocketgamesol.com/activity/apk-tip/"
+			currentStartDownloadUrl: "https://www.baidu.com/"
+			currentStartFbPage: "https://www.facebook.com/trainer3ds/"
+			currentStartType: "1"
+			currentTrialPhoto: "http://cdn-pkg-tx.pocketgamesol.com/kor/YC.jpg"
+			patchURL: "http://172.16.3.204/patchtest2.apk"
+			patchVersion: "1.0"
+			plgPkgName: "com.ajkape.soqpeust"
+			updateWay: 0
+		}
+	}
+	error_msg: "success"
+}
+```
+
 6. 当两个promise有一个未resolve则执行异常处理函数，输出错误信息，当都成功后执行渲染并将句柄留在App上以便后续操作
 7. NativeTojs 中主要是异常处理函数 和处理按下返回按钮后调起popular来提示确认要退出吗？，如果有弹窗则什么都不做的函数。
 8. 异常处理函数

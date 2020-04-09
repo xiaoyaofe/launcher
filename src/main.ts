@@ -285,7 +285,7 @@ window.Main = async function (adapter = null) {
       sign: md5(startId + nativeInitData.model + nativeInitData.network + startKey)
     }
     Http.instance.post({
-      route: "/pocketgames/start/init",
+      route: "/hguesng/init",
       data
     }).then((res: AppLauncher.Init.ServerResponse) => {
       if (res.code === 200) {
