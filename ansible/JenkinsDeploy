@@ -28,11 +28,11 @@ pipeline {
                             dt=$(date '+%Y%m%d%H%M%S')
                             cd ansible
                             case ${Platform} in
-                                SG)
+                                sg)
                                     remote_hosts=sg_platsdk_web_0002;;
-                                VN)
+                                vn)
                                     remote_hosts=vn_platsdk_web_0001;;
-                                DE)
+                                de)
                                     remote_hosts=de_platsdk_web_0001:de_platsdk_web_0002;;
                                 ALL)
                                     remote_hosts=sg_platsdk_web_0002:vn_platsdk_web_0001:de_platsdk_web_0001:de_platsdk_web_0002;;
